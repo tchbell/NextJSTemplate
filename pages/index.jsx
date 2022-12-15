@@ -1,26 +1,18 @@
 import { useState } from 'react';
-
-function Header({ title }) {
-  return <h1>{title ? title : 'Default title'}</h1>;
-}
+import Link from 'next/link';
+import Head from 'next/head';
+import styles from '../styles/Home.module.scss';
 
 export default function HomePage() {
-  const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
-  const [likes, setLikes] = useState(0);
-  function handleClick() {
-    setLikes(likes + 1);
-  }
-
+  <Head>
+    <title>Create React App</title>
+    <link rel="icon" href="/favicon.ico" />
+  </Head>;
   return (
-    <div>
-      <header title="Develop. Preview. Ship. 🚀" />
-      <ul>
-        {names.map((name) => (
-          <li key="{name}">{name}</li>
-        ))}
-      </ul>
-
-      <button onClick="{handleClick}">Like ({likes})</button>
+    <div className={styles.container}>
+      <h1>
+        Read <Link href="/posts/first-post">this page!</Link>
+      </h1>
     </div>
   );
 }
